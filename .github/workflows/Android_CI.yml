@@ -24,7 +24,6 @@ jobs:
           SECRETS: ${{ secrets.SECRETS }}
           GOOGLE_SERVICES: ${{ secrets.GOOGLE_SERVICES }}
         run: |
-          mkdir "${GITHUB_WORKSPACE}"/app/keystore/
           echo SECRETS | base64 -di > "${GITHUB_WORKSPACE}"/buildSrc/src/main/kotlin/Secrets.kt
           echo GOOGLE_SERVICES | base64 -di > "${GITHUB_WORKSPACE}"/app/google-services.json
 
