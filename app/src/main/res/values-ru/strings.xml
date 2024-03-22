@@ -1,0 +1,11 @@
+<resources>
+	<string name="app_name">LocationTest</string>
+	<string name="settings">Настройки</string>
+	<string name="locations">Локации</string>
+	<string name="delete">Удалить</string>
+	<string name="location_name">Название локации</string>
+	<string name="add">Добавить</string>
+	<string name="streets">Улицы</string>
+	<string name="ok">Ок</string>
+	<string name="close">Закрыть</string>
+</resources>

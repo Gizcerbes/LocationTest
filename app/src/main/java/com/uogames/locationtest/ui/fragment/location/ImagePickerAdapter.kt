@@ -14,6 +14,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
@@ -26,7 +27,7 @@ class ImagePickerAdapter(
 	private val isSelected: (ImageInfo) -> Boolean,
 	private val callImageLink: suspend (ImageInfo) -> Uri?,
 	private val longClick: () -> Unit,
-	private val isEditMode: Flow<Boolean>
+	private val isEditMode: StateFlow<Boolean>
 ) : RecyclerView.Adapter<ImagePickerAdapter.Holder>() {
 
 	private val recyclerScope = CoroutineScope(Dispatchers.Main)
@@ -49,15 +50,19 @@ class ImagePickerAdapter(
 					view.checkForDelete(isSelected)
 					Glide.with(view).load(imageUri).into(view.image)
 					view.deletePhotoView.setOnClickListener {
-						selectItem(item, !isSelected)
-						view.checkForDelete(!isSelected)
+						val select = isSelected(item)
+						selectItem(item, !select)
+						view.checkForDelete(!select)
 					}
 					view.setOnLongImageClickListener {
 						longClick()
 						true
 					}
 					view.setOnImageClickListener {
-						recyclerScope.launch { _selectImage.emit(imageUri.toString()) }
+						recyclerScope.launch {
+							if (isEditMode.value) view.deletePhotoView.performClick()
+							else _selectImage.emit(imageUri.toString())
+						}
 					}
 				}
 				isEditMode.observe(this) {

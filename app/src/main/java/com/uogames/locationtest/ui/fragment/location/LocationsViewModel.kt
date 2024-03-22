@@ -55,7 +55,7 @@ class LocationsViewModel @Inject constructor(
 		longClick = { editMode.value = true },
 		isEditMode = editMode,
 		selectItem = { item, b -> selectImage[item] = b },
-		isSelected = { selectImage[it] ?: false},
+		isSelected = { selectImage[it] ?: false },
 		callImageLink = { networkRepository.getImageUri(it.uuid) }
 	)
 
