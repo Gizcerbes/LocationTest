@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item
+		android:width="465dp"
+		android:height="74dp"
+		android:bottom="00dp"
+		android:drawable="@drawable/logo_part1"
+		android:gravity="top" />
+
+	<item
+		android:width="350dp"
+		android:height="85dp"
+		android:start="93dp"
+		android:bottom="-22.2dp"
+		android:drawable="@drawable/logo_part2"
+		android:gravity="bottom" />
+
+
+
+</layer-list>

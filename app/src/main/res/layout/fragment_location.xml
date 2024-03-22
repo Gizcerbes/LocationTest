@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<androidx.core.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="100dp">
+
+				<ImageView
+					android:layout_width="300dp"
+					android:layout_height="wrap_content"
+					android:layout_centerInParent="true"
+					android:src="@drawable/logo" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_centerInParent="true"
+					android:text="@string/locations"
+					android:textAppearance="?attr/textAppearanceHeadline4" />
+
+			</RelativeLayout>
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="30dp"
+					android:layout_marginBottom="2dp"
+					android:background="@drawable/gradient"
+					android:elevation="1dp"
+					android:translationZ="2dp"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:strokeWidth="0dp" />
+
+				<com.google.android.material.card.MaterialCardView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="9dp"
+					android:translationZ="2dp"
+					app:cardBackgroundColor="@color/white"
+					app:cardCornerRadius="10dp"
+					app:cardElevation="5dp"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:strokeWidth="0dp">
+
+					<com.google.android.material.card.MaterialCardView
+						android:id="@+id/mcv_streets"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_margin="16dp"
+						app:cardBackgroundColor="@color/pale_blue"
+						app:contentPadding="7dp"
+						app:strokeWidth="1px">
+
+						<TextView
+							android:id="@+id/tv_section_name"
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content"
+							android:gravity="center"
+							android:textAppearance="?attr/textAppearanceHeadline6"
+							tools:text="@string/streets" />
+
+					</com.google.android.material.card.MaterialCardView>
+
+				</com.google.android.material.card.MaterialCardView>
+
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="13dp">
+
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="30dp"
+					android:layout_marginBottom="2dp"
+					android:background="@drawable/gradient"
+					android:translationY="7dp"
+					app:layout_constraintBottom_toBottomOf="@id/mcv_content"
+					app:strokeWidth="0dp" />
+
+				<com.google.android.material.card.MaterialCardView
+					android:id="@+id/mcv_content"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="28dp"
+					android:background="@drawable/gradient"
+					app:cardBackgroundColor="@color/white"
+					app:cardElevation="0dp"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:strokeWidth="0dp">
+
+					<com.google.android.material.card.MaterialCardView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_margin="16dp"
+						app:cardBackgroundColor="@color/pale_blue"
+
+						app:strokeWidth="1px">
+
+						<RelativeLayout
+							android:layout_width="match_parent"
+							android:layout_height="wrap_content">
+
+							<RelativeLayout
+								android:id="@+id/rl_container"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:layout_margin="10dp">
+
+								<TextView
+									android:id="@+id/tv_location_name"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:layout_centerVertical="true"
+									tools:text="@string/location_name"
+									android:textAppearance="?attr/textAppearanceHeadline6"
+									android:textColor="@color/silver" />
+
+								<com.google.android.material.card.MaterialCardView
+									android:id="@+id/mcv_add_photo"
+									android:layout_width="wrap_content"
+									android:layout_height="wrap_content"
+									android:layout_alignParentEnd="true"
+									android:layout_margin="10dp"
+									android:clickable="true"
+									android:visibility="visible"
+									app:cardBackgroundColor="@color/black"
+									app:contentPadding="5dp"
+									app:layout_constraintEnd_toEndOf="parent"
+									app:layout_constraintTop_toTopOf="parent"
+									app:strokeWidth="0dp">
+
+									<ImageView
+										android:id="@+id/iv_enable"
+										android:layout_width="16dp"
+										android:layout_height="16dp"
+										android:src="@drawable/baseline_add_24"
+										app:tint="@color/white" />
+
+								</com.google.android.material.card.MaterialCardView>
+
+							</RelativeLayout>
+
+							<androidx.recyclerview.widget.RecyclerView
+								android:id="@+id/rv_location_images"
+								android:layout_width="match_parent"
+								android:layout_height="wrap_content"
+								android:layout_below="@id/rl_container"
+								android:nestedScrollingEnabled="false"
+								android:padding="6dp"
+								app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+								app:spanCount="3"
+								tools:itemCount="3"
+								tools:listitem="@layout/card_image" />
+
+						</RelativeLayout>
+
+					</com.google.android.material.card.MaterialCardView>
+
+				</com.google.android.material.card.MaterialCardView>
+
+				<com.google.android.material.card.MaterialCardView
+					android:layout_width="0dp"
+					android:layout_height="0dp"
+					android:layout_margin="3dp"
+					android:background="@color/black"
+					android:translationX="-5dp"
+					android:translationY="3dp"
+					app:cardBackgroundColor="@color/black_5"
+					app:cardCornerRadius="100dp"
+					app:layout_constraintBottom_toBottomOf="@id/btn_delete"
+					app:layout_constraintEnd_toEndOf="@id/btn_delete"
+					app:layout_constraintStart_toStartOf="@id/btn_delete"
+					app:layout_constraintTop_toTopOf="@id/btn_delete"
+					app:strokeWidth="0dp" />
+
+				<com.google.android.material.button.MaterialButton
+					android:id="@+id/btn_delete"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="10dp"
+					android:background="@null"
+					android:backgroundTint="@color/moderate_red"
+					android:minWidth="170dp"
+					android:padding="13dp"
+					android:shadowColor="@color/black"
+					android:stateListAnimator="@null"
+					android:text="@string/delete"
+					app:elevation="20dp"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:strokeColor="@color/white"
+					app:strokeWidth="1dp" />
+
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+		</LinearLayout>
+
+	</androidx.core.widget.NestedScrollView>
+
+	<RelativeLayout
+		android:id="@+id/curtain"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/black_25">
+
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true">
+
+			<com.google.android.material.progressindicator.CircularProgressIndicator
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:indeterminate="true"
+				android:progress="50" />
+
+		</com.google.android.material.card.MaterialCardView>
+
+	</RelativeLayout>
+
+</RelativeLayout>

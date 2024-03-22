@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+	<item android:start="2dp" android:top="2dp" android:bottom="2dp" android:end="2dp" android:width="24dp">
+		<rotate android:fromDegrees="135" android:drawable="@drawable/repeat"/>
+	</item>
+
+	<item
+		android:start="7.5dp"
+		android:top="6dp"
+		android:width="13dp"
+		android:height="16dp"
+		android:drawable="@drawable/outline_attach_money_24"
+		/>
+
+
+</layer-list>

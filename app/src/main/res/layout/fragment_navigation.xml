@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+
+		<androidx.fragment.app.FragmentContainerView
+			android:id="@+id/nav_bottom_fragment"
+			android:name="androidx.navigation.fragment.NavHostFragment"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_above="@id/rl_bar"
+			app:defaultNavHost="false"
+			app:navGraph="@navigation/bottom_nav" />
+
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:layout_alignParentBottom="true"
+			android:background="@drawable/gradient"
+			android:translationY="-25dp" />
+
+		<RelativeLayout
+			android:id="@+id/rl_bar"
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:layout_alignParentBottom="true"
+			android:background="@color/white">
+
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentStart="true"
+				android:layout_toStartOf="@id/spacer"
+				android:gravity="center"
+				android:orientation="horizontal">
+
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="50dp"
+
+					android:layout_weight="1"
+					android:orientation="horizontal" />
+
+				<com.google.android.material.button.MaterialButton
+					style="?attr/materialIconButtonStyle"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:enabled="false"
+					android:gravity="center"
+					app:icon="@drawable/settings"
+					app:iconSize="24dp" />
+
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="50dp"
+					android:layout_weight="1"
+					android:orientation="horizontal" />
+
+				<com.google.android.material.button.MaterialButton
+					style="?attr/materialIconButtonStyle"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:enabled="false"
+					app:icon="@drawable/outline_currency_exchange_24"
+					app:iconSize="24dp" />
+
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="50dp"
+					android:layout_weight="1"
+					android:orientation="horizontal" />
+
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/spacer"
+				android:layout_width="50dp"
+				android:layout_height="50dp"
+				android:layout_centerHorizontal="true"
+				android:orientation="horizontal" />
+
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentEnd="true"
+				android:layout_toEndOf="@id/spacer">
+
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="50dp"
+					android:layout_weight="1"
+					android:orientation="horizontal" />
+
+				<com.google.android.material.button.MaterialButton
+					style="?attr/materialIconButtonStyle"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:enabled="false"
+					android:gravity="center"
+					app:icon="@drawable/view_cozy_24px"
+					app:iconSize="24dp" />
+
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="50dp"
+					android:layout_weight="1"
+					android:orientation="horizontal" />
+
+				<com.google.android.material.button.MaterialButton
+					style="?attr/materialIconButtonStyle"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:enabled="true"
+					app:icon="@drawable/pin_drop_24px"
+					app:iconSize="24dp" />
+
+				<LinearLayout
+					android:layout_width="0dp"
+					android:layout_height="50dp"
+					android:layout_weight="1"
+					android:orientation="horizontal" />
+
+			</LinearLayout>
+
+		</RelativeLayout>
+
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="15dp"
+			android:clickable="true"
+			app:cardBackgroundColor="@color/transparent"
+			app:cardCornerRadius="100dp"
+			app:strokeWidth="0dp">
+
+			<ImageView
+				android:layout_width="70dp"
+				android:layout_height="70dp"
+				android:src="@drawable/clock" />
+
+
+		</com.google.android.material.card.MaterialCardView>
+	</RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

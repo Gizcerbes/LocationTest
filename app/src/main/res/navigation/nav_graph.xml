@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_graph"
+	app:startDestination="@id/emptyFragment">
+
+	<fragment
+		android:id="@+id/emptyFragment"
+		android:name="com.uogames.locationtest.ui.fragment.EmptyFragment"
+		android:label="EmptyFragment" />
+
+
+	<fragment
+		android:id="@+id/bottomFragment"
+		android:name="com.uogames.locationtest.ui.fragment.bottom.BottomFragment"
+		android:label="BottomFragment"
+		tools:layout="@layout/fragment_navigation" />
+
+	<fragment
+		android:id="@+id/fullImageFragment"
+		tools:layout="@layout/fragment_full_image"
+		android:name="com.uogames.locationtest.ui.fragment.fullimage.FullImageFragment"
+		android:label="FullImageFragment" />
+
+
+</navigation>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="30dp"
+		android:layout_marginBottom="2dp"
+		android:background="@drawable/gradient"
+		android:translationY="10dp"
+		app:layout_constraintBottom_toBottomOf="@id/mcv_content"
+		app:strokeWidth="0dp" />
+
+	<com.google.android.material.card.MaterialCardView
+		android:id="@+id/mcv_content"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="36dp"
+		android:background="@drawable/gradient"
+		app:cardBackgroundColor="@color/white"
+		app:cardElevation="0dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:strokeWidth="0dp">
+
+		<com.google.android.material.card.MaterialCardView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="16dp"
+			app:cardBackgroundColor="@color/pale_blue"
+
+			app:strokeWidth="1px">
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<RelativeLayout
+					android:id="@+id/rl_container"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					android:layout_marginEnd="10dp"
+					android:layout_marginTop="10dp">
+
+					<TextView
+						android:id="@+id/tv_location_name"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_centerVertical="true"
+						android:text="@string/location_name"
+						android:textAppearance="?attr/textAppearanceHeadline6"
+						android:textColor="@color/silver" />
+
+					<com.google.android.material.card.MaterialCardView
+						android:id="@+id/mcv_add_photo"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_alignParentEnd="true"
+						android:clickable="true"
+						android:visibility="visible"
+						app:cardBackgroundColor="@color/black"
+						app:contentPadding="5dp"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintTop_toTopOf="parent"
+						app:strokeWidth="0dp">
+
+						<ImageView
+							android:id="@+id/iv_enable"
+							android:layout_width="16dp"
+							android:layout_height="16dp"
+							android:src="@drawable/baseline_add_24"
+							app:tint="@color/white" />
+
+					</com.google.android.material.card.MaterialCardView>
+
+				</RelativeLayout>
+
+				<androidx.recyclerview.widget.RecyclerView
+					android:id="@+id/rv_location_images"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/rl_container"
+					android:layout_marginBottom="13dp"
+					android:nestedScrollingEnabled="false"
+					android:padding="6dp"
+					app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+					app:spanCount="3"
+					tools:itemCount="6"
+					tools:listitem="@layout/card_image" />
+
+			</RelativeLayout>
+
+		</com.google.android.material.card.MaterialCardView>
+
+	</com.google.android.material.card.MaterialCardView>
+
+	<com.uogames.locationtest.ui.custom.ButtonWithShadow
+		android:id="@+id/btn_delete"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		app:layout_constraintBottom_toBottomOf="@id/mcv_content"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@id/mcv_content" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<com.google.android.material.card.MaterialCardView
+		android:id="@+id/mcv_content"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:layout_margin="4dp"
+		app:cardElevation="1dp"
+		app:strokeWidth="0dp">
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+
+			<ImageView
+				android:id="@+id/iv_photo"
+				android:layout_width="110dp"
+				android:layout_height="110dp"
+				android:scaleType="centerCrop"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				tools:src="@drawable/ic_launcher_foreground" />
+
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/mcv_delete_photo"
+				android:layout_width="26dp"
+				android:layout_height="26dp"
+				android:layout_margin="10dp"
+				app:cardCornerRadius="120dp"
+				android:clickable="true"
+				android:visibility="gone"
+				app:contentPadding="5dp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:strokeColor="@color/moderate_red"
+				app:strokeWidth="1dp">
+
+				<ImageView
+					android:id="@+id/delete_photo_select"
+					android:layout_width="16dp"
+					android:layout_gravity="center"
+					android:layout_height="16dp"
+					android:visibility="gone"
+					android:src="@drawable/baseline_clear_24"
+					app:tint="@color/moderate_red" />
+
+			</com.google.android.material.card.MaterialCardView>
+
+			<com.google.android.material.card.MaterialCardView
+				android:id="@+id/mcv_select_photo"
+				android:layout_width="26dp"
+				android:layout_height="26dp"
+				app:cardCornerRadius="120dp"
+				android:layout_margin="10dp"
+				android:clickable="true"
+				android:visibility="gone"
+				app:contentPadding="5dp"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:strokeColor="@color/pms_354"
+				app:strokeWidth="1dp">
+
+				<ImageView
+					android:id="@+id/check_photo_select"
+					android:layout_width="16dp"
+					android:layout_height="16dp"
+					android:visibility="gone"
+					android:src="@drawable/baseline_done_24"
+					app:tint="@color/pms_354" />
+
+			</com.google.android.material.card.MaterialCardView>
+
+
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+	</com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
