@@ -24,8 +24,8 @@ jobs:
           ENCODED_SECRETS: ${{ secrets.SECRETS }}
           ENCODED_GOOGLE_SERVICES: ${{ secrets.GOOGLE_SERVICES }}
         run: |
-          echo ENCODED_SECRETS | base64 -di > "${GITHUB_WORKSPACE}"/buildSrc/src/main/kotlin/Secrets.kt
-          echo ENCODED_GOOGLE_SERVICES | base64 -di > "${GITHUB_WORKSPACE}"/app/google-services.json
+          echo $ENCODED_SECRETS | base64 -di > "${GITHUB_WORKSPACE}"/buildSrc/src/main/kotlin/Secrets.kt
+          echo $ENCODED_GOOGLE_SERVICES | base64 -di > "${GITHUB_WORKSPACE}"/app/google-services.json
 
       - name: Clean build
         run: ./gradlew clean
