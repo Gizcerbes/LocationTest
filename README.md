@@ -17,7 +17,7 @@ https://github.com/Gizcerbes/LocationTest/assets/26376753/777e4abf-f7a9-4155-8b1
 ```
 object Environments {
 	
-	const val FIREBASE_STORAGE = "\" ... ""
+	const val FIREBASE_STORAGE = "\" ... \""
 	
 }
 ```
