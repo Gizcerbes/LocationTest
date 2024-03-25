@@ -44,8 +44,6 @@ class LocationsViewModel @Inject constructor(
 	private val editLocale = HashMap<Locale, Boolean>()
 	private val selectImage = HashMap<ImageInfo, Boolean>()
 
-	//private val _itemList = ArrayList<ItemSelect<Pair<Uri, ImageInfo>>>()
-
 	private val _isLoading = MutableStateFlow(false)
 	val isLoading = _isLoading.asStateFlow()
 
@@ -87,16 +85,16 @@ class LocationsViewModel @Inject constructor(
 			_isLoading.value = false
 		}
 
-		locationName.observe(viewModelScope){
+		locationName.observe(viewModelScope) {
 			_isLoading.value = true
 			val location = section.value?.locations?.firstOrNull()
-			if (location != null){
+			if (location != null) {
 				location.name = it
 				databaseRepository.renameLocation(location)
 			}
 			_isLoading.value = false
 		}
-		editMode.observe(viewModelScope){
+		editMode.observe(viewModelScope) {
 			if (!it) selectImage.clear()
 		}
 	}

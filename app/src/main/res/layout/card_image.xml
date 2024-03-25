@@ -34,9 +34,9 @@
 				android:layout_width="26dp"
 				android:layout_height="26dp"
 				android:layout_margin="10dp"
-				app:cardCornerRadius="120dp"
 				android:clickable="true"
 				android:visibility="gone"
+				app:cardCornerRadius="120dp"
 				app:contentPadding="5dp"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintTop_toTopOf="parent"
@@ -46,10 +46,10 @@
 				<ImageView
 					android:id="@+id/delete_photo_select"
 					android:layout_width="16dp"
-					android:layout_gravity="center"
 					android:layout_height="16dp"
-					android:visibility="gone"
+					android:layout_gravity="center"
 					android:src="@drawable/baseline_clear_24"
+					android:visibility="gone"
 					app:tint="@color/moderate_red" />
 
 			</com.google.android.material.card.MaterialCardView>
@@ -58,10 +58,10 @@
 				android:id="@+id/mcv_select_photo"
 				android:layout_width="26dp"
 				android:layout_height="26dp"
-				app:cardCornerRadius="120dp"
 				android:layout_margin="10dp"
 				android:clickable="true"
 				android:visibility="gone"
+				app:cardCornerRadius="120dp"
 				app:contentPadding="5dp"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintTop_toTopOf="parent"
@@ -72,11 +72,18 @@
 					android:id="@+id/check_photo_select"
 					android:layout_width="16dp"
 					android:layout_height="16dp"
-					android:visibility="gone"
 					android:src="@drawable/baseline_done_24"
+					android:visibility="gone"
 					app:tint="@color/pms_354" />
 
 			</com.google.android.material.card.MaterialCardView>
+
+			<TextView
+				android:id="@+id/timer"
+				android:layout_width="0dp"
+				android:layout_height="0dp"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent" />
 
 
 		</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.uogames.locationtest.ui.fragment.location
 
 import android.net.Uri
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +12,7 @@ import com.uogames.locationtest.utlis.observe
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -40,39 +42,40 @@ class ImagePickerAdapter(
 	inner class Holder(private val view: CardImage) : RecyclerView.ViewHolder(view) {
 
 		private var job: Job? = null
+		private var job2: Job? = null
 
 		fun show(position: Int) {
-			job = recyclerScope.launch {
-				refreshFlow.observe(this) {
-					val item = callItem(adapterPosition) ?: return@observe
-					val isSelected = isSelected(item)
-					val imageUri = callImageLink(item)
-					view.checkForDelete(isSelected)
-					Glide.with(view).load(imageUri).into(view.image)
-					view.deletePhotoView.setOnClickListener {
-						val select = isSelected(item)
-						selectItem(item, !select)
-						view.checkForDelete(!select)
-					}
-					view.setOnLongImageClickListener {
-						longClick()
-						true
-					}
-					view.setOnImageClickListener {
-						recyclerScope.launch {
-							if (isEditMode.value) view.deletePhotoView.performClick()
-							else _selectImage.emit(imageUri.toString())
-						}
+			job = refreshFlow.observe(recyclerScope) {
+				view.timer.text = it.toString()
+				val item = callItem(adapterPosition) ?: return@observe
+				val isSelected = isSelected(item)
+				val imageUri = callImageLink(item)
+				view.checkForDelete(isSelected)
+				Glide.with(view).load(imageUri).into(view.image)
+				view.deletePhotoView.setOnClickListener {
+					val select = isSelected(item)
+					selectItem(item, !select)
+					view.checkForDelete(!select)
+				}
+				view.setOnLongImageClickListener {
+					longClick()
+					true
+				}
+				view.setOnImageClickListener {
+					recyclerScope.launch {
+						if (isEditMode.value) view.deletePhotoView.performClick()
+						else _selectImage.emit(imageUri.toString())
 					}
 				}
-				isEditMode.observe(this) {
-					view.deletePhotoView.visibility = if (it) View.VISIBLE else View.GONE
-				}
+			}
+			job2 = isEditMode.observe(recyclerScope) {
+				view.deletePhotoView.visibility = if (it) View.VISIBLE else View.GONE
 			}
 		}
 
 		fun onDestroy() {
 			job?.cancel()
+			job2?.cancel()
 		}
 
 	}
@@ -93,10 +96,9 @@ class ImagePickerAdapter(
 		holder.onDestroy()
 	}
 
-
-	override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+	override fun onViewAttachedToWindow(holder: Holder) {
 		attached++
-		super.onAttachedToRecyclerView(recyclerView)
+		super.onViewAttachedToWindow(holder)
 	}
 
 	override fun onViewDetachedFromWindow(holder: Holder) {
@@ -104,10 +106,9 @@ class ImagePickerAdapter(
 		super.onViewDetachedFromWindow(holder)
 	}
 
-
 	fun refresh() {
-		refreshFlow.value++
 		if (attached < 2) recyclerScope.launch { notifyDataSetChanged() }
+		else recyclerScope.launch { refreshFlow.value++ }
 	}
 
 

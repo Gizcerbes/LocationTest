@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.RelativeLayout
+import android.widget.TextView
 import com.uogames.locationtest.databinding.CardImageBinding
 
 class CardImage (context: Context, attr: AttributeSet? = null) : RelativeLayout(context, attr) {
@@ -15,6 +16,7 @@ class CardImage (context: Context, attr: AttributeSet? = null) : RelativeLayout(
 
 	val deletePhotoView: View = bind.mcvDeletePhoto
 	val selectPhotoView: View = bind.mcvSelectPhoto
+	val timer: TextView = bind.timer
 
 	val isDeleteChecked get() =  deletePhotoView.visibility == VISIBLE
 	val isChecked get() = selectPhotoView.visibility == VISIBLE
