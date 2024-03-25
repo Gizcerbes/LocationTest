@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "285192006685",
+    "project_id": "localetest-15a31",
+    "storage_bucket": "localetest-15a31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285192006685:android:eb06d71623fcfd17946af4",
+        "android_client_info": {
+          "package_name": "com.uogames.locationtest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_g-eT_bDMcL6nIb5vdVnsL4fKwI2fXks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
